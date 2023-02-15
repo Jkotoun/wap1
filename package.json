@@ -2,11 +2,14 @@
   "name": "iterate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
-  "author": "",
-  "license": "ISC",
+  "type": "module",
   "dependencies": {
+    "jest": "^29.4.3",
     "jsdoc": "^4.0.0"
+  },
+  "jest": {
+    "transform": {}
   }
 }
