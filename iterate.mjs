@@ -4,7 +4,6 @@
  * @param {Object} filter - object with property descriptor values which should generated properties have
  */
 export function* iterateProperties(object, filter = undefined) {
-    
     //recursively yield all properties of prototypes chain till Object.prototype object
     let prototype = Object.getPrototypeOf(object)
     if (prototype) {
