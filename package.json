@@ -1,6 +1,5 @@
 {
   "name": "iterate",
-  "main": "index.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
