@@ -10,10 +10,9 @@ function getAllGeneratorValues(iterator) {
   return props;
 }
 const protoObjProps = Object.getOwnPropertyNames(Object.prototype)
-const o = {
-  a: 1,
-  b: 2,
-  c: 3
+const testObj = {
+  prop1: "propval",
+  prop2: 2,
 }
 
 test('prototype object', () => {
@@ -24,16 +23,15 @@ test('prototype object', () => {
 
 test('simple object - all props', () => {
 
-  let obj = Object.create(o)
+  let obj = Object.create(testObj)
   let iterator = iterateProperties(obj)
-  let expected = [...protoObjProps, 'a', 'b', 'c']
+  let expected = [...protoObjProps, 'prop1', 'prop2']
   expect(getAllGeneratorValues(iterator)).toEqual(expected)
 });
 
 test('filter simple', () => {
-  let obj = Object.create(o)
+  let obj = Object.create(testObj)
   Object.defineProperty(obj, "non-writable", {
-    'value': 0,
     'writable': false,
   });
 
@@ -42,7 +40,7 @@ test('filter simple', () => {
 })
 
 test('filter complex', () => {
-  let obj = Object.create(o)
+  let obj = Object.create(testObj)
   Object.defineProperty(obj, "nonwritable-enumerable", {
     value: 80,
     enumerable: true,
@@ -54,7 +52,7 @@ test('filter complex', () => {
 })
 
 test('filter-out-all', () => {
-  let obj = Object.create(o)
+  let obj = Object.create(testObj)
   Object.defineProperty(obj, "nonwritable-enumerable", {
     enumerable: true,
     writable: true
@@ -65,7 +63,7 @@ test('filter-out-all', () => {
 })
 
 test('nonexisting prop', () => {
-  let obj = Object.create(o)
+  let obj = Object.create(testObj)
   Object.defineProperty(obj, "nonwritable-enumerable", {
     enumerable: true,
     writable: true

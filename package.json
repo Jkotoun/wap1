@@ -1,7 +1,7 @@
 {
   "name": "iterate",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest --runInBand"
   },
   "type": "module",
   "dependencies": {
